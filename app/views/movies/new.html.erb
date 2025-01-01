@@ -1,11 +1,69 @@
-<% content_for :title, "New movie" %>
+<% content_for :title, "Add New Movie" %>
 
-<h1>New movie</h1>
+<h1 class="page-title">Add New Movie</h1>
 
 <%= render "form", movie: @movie %>
 
 <br>
 
-<div>
-  <%= link_to "Back to movies", movies_path %>
+<div class="back-to-movies">
+  <%= link_to "Back to Movies", movies_path(sort: params[:sort], direction: params[:direction]), class: "back-link" %>
 </div>
+
+<style>
+  .page-title {
+    color: White;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-container {
+    background-color: #f3e5f5;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #9c27b0; 
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  form input[type="submit"] {
+    background-color: #9c27b0; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 12px;
+    border-radius: 5px;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #7b1fa2;
+  }
+
+  /* Back to Movies Link */
+  .back-to-movies {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .back-link {
+    color: #9c27b0;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+    color: #7b1fa2; 
+  }
+</style>

@@ -1,10 +1,181 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+body {
+    background-color: #f4f4f4;  
+    font-family: Arial, sans-serif;  
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    color: #fff;  
+    background-color: #7f4adf; 
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f1f1f1;
+  }
+
+  
+  th.sorted-asc-title {
+    background-color: #388e3c;  
+  }
+  
+  th.sorted-desc-title {
+    background-color: #d32f2f; 
+  }
+  
+  td.highlight-column-title {
+    background-color: #81c784;  
+  }
+  
+  td.highlight-column-title.desc {
+    background-color: #e57373;  
+  }
+  
+  /* Rating column */
+  th.sorted-asc-rating {
+    background-color: #388e3c;  
+  }
+  
+  th.sorted-desc-rating {
+    background-color: #d32f2f;  
+  }
+  
+  td.highlight-column-rating {
+    background-color: #81c784; 
+  }
+  
+  td.highlight-column-rating.desc {
+    background-color: #e57373;  
+  }
+  
+  /* Release Date column */
+  th.sorted-asc-release_date {
+    background-color: #388e3c;  
+  }
+  
+  th.sorted-desc-release_date {
+    background-color: #d32f2f;  
+  }
+  
+  td.highlight-column-release_date {
+    background-color: #81c784;  
+  }
+  
+  td.highlight-column-release_date.desc {
+    background-color: #e57373;  
+  }
+  
+  
+  .form-section {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  .field {
+    margin-bottom: 10px;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .form-actions input[type="submit"] {
+    background-color: #7f4adf;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .form-actions input[type="submit"]:hover {
+    background-color: #5e2d9d;
+  }
+  
+  .movie-details p {
+    font-size: 1.1em;
+  }
+  
+  .movie-actions {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+  .movie-actions a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #7f4adf;
+  }
+  
+  .movie-actions a:hover {
+    color: #5e2d9d;
+  }
+  
+  tfoot td {
+    font-style: italic;
+    text-align: center;
+    color: #777;
+  }
+
+  table a {
+    text-decoration: none;
+  }
+
+  .movie-title-link {
+    color: #000000;
+  }
+  
+  .details-button {
+    font-style: italic;
+  }
+  
+
+a:hover, button:hover {
+  color: white;
+  background-color: #6a0dad;
+  text-decoration: none;  
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #a78add;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 25px; /* round the border */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #8f66b5;
+}

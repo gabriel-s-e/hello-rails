@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: #6a0dad; font-size: 18px; font-weight: bold; margin-bottom: 20px;">
+  <%= notice %>
+</p>
 
-<%= render @movie %>
+<div style="background-color: #f4f1fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+  <h2 style="color: #6a0dad; font-size: 24px; margin-bottom: 10px; text-align: center;">
+    <%= @movie.title %>
+  </h2>
 
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
+  <p style="color: #4a4a4a; font-size: 16px; line-height: 1.6; text-align: center;">
+    <strong>Rating:</strong> <%= @movie.rating %><br>
+    <strong>Release Date:</strong> <%= @movie.release_date.strftime("%B %d, %Y") %>
+  </p>
 
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+  <div style="text-align: center; margin-top: 20px;">
+    <%= link_to "Edit this Movie", edit_movie_path(@movie, sort: params[:sort], direction: params[:direction]), style: "color: #6a0dad; font-weight: bold; text-decoration: none; padding: 8px 16px; background-color: #f4f1fa; border: 2px solid #6a0dad; border-radius: 5px; margin-right: 10px;" %>
+    <%= link_to "Back to Movies", movies_path(sort: params[:sort], direction: params[:direction]), style: "color: #6a0dad; font-weight: bold; text-decoration: none; padding: 8px 16px; background-color: #f4f1fa; border: 2px solid #6a0dad; border-radius: 5px;" %>
+  </div>
+  
+  <div style="text-align: center; margin-top: 20px;">
+    <%= button_to "Destroy this Movie", @movie, method: :delete, style: "background-color: #6a0dad; color: white; font-weight: bold; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;" %>
+  </div>
 </div>

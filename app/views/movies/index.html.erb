@@ -1,16 +1,66 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Movies" %>
-
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th class="<%= 'sorted-asc-title' if params[:sort] == 'title' && params[:direction] == 'asc' %> 
+           <%= 'sorted-desc-title' if params[:sort] == 'title' && params[:direction] == 'desc' %>">
+      Title
+      <%= link_to movies_path(sort: 'title', direction: (params[:direction] == 'asc' ? 'desc' : 'asc')) do %>
+        <%= sort_icon('title', params[:direction]) %>
+      <% end %>
+    </th>
+
+    <th class="<%= 'sorted-asc-rating' if params[:sort] == 'rating' && params[:direction] == 'asc' %> 
+              <%= 'sorted-desc-rating' if params[:sort] == 'rating' && params[:direction] == 'desc' %>">
+      Rating
+      <%= link_to movies_path(sort: 'rating', direction: (params[:direction] == 'asc' ? 'desc' : 'asc')) do %>
+        <%= sort_icon('rating', params[:direction]) %>
+      <% end %>
+    </th>
+
+    <th class="<%= 'sorted-asc-release_date' if params[:sort] == 'release_date' && params[:direction] == 'asc' %> 
+              <%= 'sorted-desc-release_date' if params[:sort] == 'release_date' && params[:direction] == 'desc' %>">
+      Release Date
+      <%= link_to movies_path(sort: 'release_date', direction: (params[:direction] == 'asc' ? 'desc' : 'asc')) do %>
+        <%= sort_icon('release_date', params[:direction]) %>
+      <% end %>
+    </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td class="<%= 'highlight-column-title' if params[:sort] == 'title' %> 
+                  <%= 'desc' if params[:direction] == 'desc' %>">
+          <div style="text-align: left;">
+            <%= movie.title %>
+          </div>
+          <div style="text-align: right; display: inline-block; class: details-button">
+            <%= link_to "Details", movie_path(movie, sort: params[:sort], direction: params[:direction]), style: "font-style: italic; color: black; text-decoration: underline" %>
+          </div>
+        </td>
+        <td class="<%= 'highlight-column-rating' if params[:sort] == 'rating' %> 
+                  <%= 'desc' if params[:direction] == 'desc' %>">
+          <%= movie.rating %>
+        </td>
+        <td class="<%= 'highlight-column-release_date' if params[:sort] == 'release_date' %> 
+                  <%= 'desc' if params[:direction] == 'desc' %>">
+          <%= movie.release_date.strftime("%m/%d/%Y") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="3">Total Movies: <%= @movies.count %></td>
+    </tr>
+  </tfoot>
+</table>
+
+<div class="center-container">
+  <%= link_to "Add New Movie", new_movie_path(sort: params[:sort], direction: params[:direction]), class: "btn" %>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
